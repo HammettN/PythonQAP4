@@ -159,9 +159,9 @@ while True:
         ClaimAMT = input("Enter the prior claim amount price (ENTER to end): ")
         if ClaimAMT == "":
             break
-        ClaimDate = input("Enter the priot claim date (YYYY-MM-DD): ")
+        ClaimDate = input("Enter the prior claim date (YYYY-MM-DD): ")
         ClaimDate = datetime.datetime.strptime(ClaimDate, "%Y-%m-%d")
-        ClaimDateDSP = ClaimDate.strftime("%B %d, %Y")
+        ClaimDateDSP = ClaimDate.strftime("%Y-%m-%d")
         IncrementVar += 1
  
         ClaimLST.append(ClaimAMT)
@@ -179,7 +179,7 @@ while True:
    #printing out results
     print()
     print(f"                                One Stop Insurance Company")
-    print(f"                                    Customer Reciept")
+    print(f"                                    Customer Reciept             Policy Noumber:{NEXT_POLICY_NUMBER}")
     print(f"------------------------------------------------------------------------------------")
     CustFullName = FirstName + " " + LastName
     CurDate = datetime.datetime.now()#fetching todays date
@@ -227,12 +227,12 @@ while True:
     ExtraLiabilityDSP = FV.FDollar2(ChargeList[1])
     print(f"Extra Liability:                                                            {ExtraLiabilityDSP:>9s}")
     GlassCoverageDSP = FV.FDollar2(ChargeList[2])
-    print(f"Extra Liability:                                                            {GlassCoverageDSP:>9s}")
+    print(f"Glass Coverage:                                                             {GlassCoverageDSP:>9s}")
     LoanerCarDSP = FV.FDollar2(ChargeList[3])
-    print(f"Extra Liability:                                                            {LoanerCarDSP:>9s}")
+    print(f"Loaner Car Coverage:                                                        {LoanerCarDSP:>9s}")
     print(f"-------------------------------------------------------------------------------------")
     print(f"Addition of basic and additional Charges:")
-    print(f"--------------")
+    print(f"-------------------------------------------------------------------------------------")
     TotalPremiumDsp = FV.FComma2(ChargeList[0])
     print(f"Full cost of premium before taxes:                                          {TotalPremiumDsp:>9s}")
     HSTDSP = FV.FComma2(HST)
@@ -257,7 +257,8 @@ while True:
     print(f"           Claim Number             ClaimDate            Claim Amount")
     #prior claim information
     for i in range(0,IncrementVar):
-        print(f"               {i+1}.                  {ClaimDateLST[i]}             {ClaimLST[i]}")
+        print(f"               {i+1}.                   {ClaimDateLST[i]}                {ClaimLST[i]}")
+    NEXT_POLICY_NUMBER +=1 #to allow the program to sensibly distinguish between policies for several clients. its basic...
 
    #to end the program
    
