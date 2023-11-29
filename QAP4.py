@@ -1,5 +1,7 @@
-# Comment like a pro.
- 
+#Python QAP4 
+#written by: Noel Hammett
+#date written: 2023-11-29
+
 # Import required libraries.
 import datetime
 import FormatValues as FV
